@@ -16,7 +16,7 @@ public class MyLog {
         private static MyLog instance = new MyLog();
     }
 
-    public static MyLog getInstance() {
+    public static MyLog getIns() {
         return MyLogFactory.instance;
     }
 
@@ -30,6 +30,10 @@ public class MyLog {
 
     public void e(String msg) {
         Logger.e(msg);
+    }
+
+    public void json(String json) {
+        Logger.json(json);
     }
 
 }

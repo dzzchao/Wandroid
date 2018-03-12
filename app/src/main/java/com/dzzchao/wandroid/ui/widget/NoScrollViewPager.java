@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 
 /**
+ * 不能滑动的Viewpager
  * Created by zhangchao on 2018/3/12.
  */
 

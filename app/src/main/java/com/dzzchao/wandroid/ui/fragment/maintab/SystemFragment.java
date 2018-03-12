@@ -1,4 +1,4 @@
-package com.dzzchao.wandroid.ui.fragment;
+package com.dzzchao.wandroid.ui.fragment.maintab;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,15 +10,15 @@ import com.dzzchao.wandroid.R;
 import com.dzzchao.wandroid.base.BaseFragment;
 
 /**
- * @author zhangchao
- * @date 2018/3/12
+ * Created by zhangchao on 2018/3/12.
  */
-public class HomeFragment extends BaseFragment {
+
+public class SystemFragment extends BaseFragment {
 
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.tab_home,container,false);
+        return inflater.inflate(R.layout.tab_system,container,false);
     }
 }

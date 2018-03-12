@@ -10,9 +10,9 @@ import android.view.MenuItem;
 
 import com.dzzchao.wandroid.R;
 import com.dzzchao.wandroid.base.BaseActivity;
-import com.dzzchao.wandroid.ui.fragment.HomeFragment;
-import com.dzzchao.wandroid.ui.fragment.MyFragment;
-import com.dzzchao.wandroid.ui.fragment.SystemFragment;
+import com.dzzchao.wandroid.ui.fragment.maintab.HomeFragment;
+import com.dzzchao.wandroid.ui.fragment.maintab.MyFragment;
+import com.dzzchao.wandroid.ui.fragment.maintab.SystemFragment;
 import com.dzzchao.wandroid.utils.MyLog;
 
 import java.util.ArrayList;
@@ -73,15 +73,15 @@ public class MainActivity extends BaseActivity {
                 switch (item.getItemId()) {
                     case R.id.navigation_home:
                         //第一次不会触发
-                        MyLog.getInstance().d("点击了首页");
+                        MyLog.getIns().d("点击了首页");
                         mViewPager.setCurrentItem(0);
                         break;
                     case R.id.navigation_system:
-                        MyLog.getInstance().d("点击了体系");
+                        MyLog.getIns().d("点击了体系");
                         mViewPager.setCurrentItem(1);
                         break;
                     case R.id.navigation_my:
-                        MyLog.getInstance().d("点击了我的");
+                        MyLog.getIns().d("点击了我的");
                         mViewPager.setCurrentItem(2);
                         break;
                     default:
@@ -94,15 +94,15 @@ public class MainActivity extends BaseActivity {
             public void onNavigationItemReselected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.navigation_home:
-                        MyLog.getInstance().d("点击了首页 again");
+                        MyLog.getIns().d("点击了首页 again");
 
                         break;
                     case R.id.navigation_system:
-                        MyLog.getInstance().d("点击了体系 again");
+                        MyLog.getIns().d("点击了体系 again");
 
                         break;
                     case R.id.navigation_my:
-                        MyLog.getInstance().d("点击了我的 again");
+                        MyLog.getIns().d("点击了我的 again");
 
                         break;
                     default:
