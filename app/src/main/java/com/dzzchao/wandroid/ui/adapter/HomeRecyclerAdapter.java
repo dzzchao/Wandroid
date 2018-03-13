@@ -33,9 +33,12 @@ public class HomeRecyclerAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        System.out.println("onBindViewHolder");
         MyViewHolder viewHolder = (MyViewHolder) holder;
-        viewHolder.tvTitle.setText(mdatas.get(position).getTitle());
+        HomePageBean.DataBean.DatasBean datasBean = mdatas.get(position);
+        viewHolder.tvTitle.setText(datasBean.getTitle());
+        viewHolder.tvAuthor.setText(datasBean.getAuthor());
+        viewHolder.tvClassification.setText(datasBean.getChapterName());
+        viewHolder.tvTime.setText(datasBean.getNiceDate());
     }
 
 
@@ -43,10 +46,16 @@ public class HomeRecyclerAdapter extends RecyclerView.Adapter {
 
 
         private TextView tvTitle;
+        private TextView tvAuthor;
+        private TextView tvClassification;
+        private TextView tvTime;
 
         public MyViewHolder(View itemView) {
             super(itemView);
             tvTitle = itemView.findViewById(R.id.item_home_tv_title);
+            tvAuthor = itemView.findViewById(R.id.item_home_tv_author);
+            tvClassification = itemView.findViewById(R.id.item_home_tv_classification);
+            tvTime = itemView.findViewById(R.id.item_home_tv_time);
         }
     }
 

@@ -12,6 +12,8 @@ import com.dzzchao.wandroid.R;
 import com.dzzchao.wandroid.base.BaseFragment;
 import com.dzzchao.wandroid.net.bean.HomePageBean;
 import com.dzzchao.wandroid.ui.adapter.HomeRecyclerAdapter;
+import com.dzzchao.wandroid.ui.fragment.maintab.presenter.HomePresenter;
+import com.dzzchao.wandroid.ui.fragment.maintab.view.IHomeView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

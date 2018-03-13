@@ -1,10 +1,11 @@
-package com.dzzchao.wandroid.ui.fragment.maintab;
+package com.dzzchao.wandroid.ui.fragment.maintab.presenter;
 
 import com.dzzchao.wandroid.base.BasePresenter;
 import com.dzzchao.wandroid.net.IRequestCallback;
 import com.dzzchao.wandroid.net.IRequestManager;
 import com.dzzchao.wandroid.net.RequestFactory;
 import com.dzzchao.wandroid.net.bean.HomePageBean;
+import com.dzzchao.wandroid.ui.fragment.maintab.view.IHomeView;
 import com.dzzchao.wandroid.utils.MyLog;
 import com.google.gson.Gson;
 

@@ -1,4 +1,4 @@
-package com.dzzchao.wandroid.ui.fragment.maintab;
+package com.dzzchao.wandroid.ui.fragment.maintab.view;
 
 import com.dzzchao.wandroid.net.bean.HomePageBean;
 

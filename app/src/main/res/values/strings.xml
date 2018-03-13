@@ -5,4 +5,9 @@
     <string name="tab_system">体系</string>
     <string name="tab_my">我的</string>
 
+    <!--主页列表-->
+    <string name="list_author">作者</string>
+    <string name="list_classification">分类</string>
+    <string name="list_time">时间</string>
+
 </resources>
