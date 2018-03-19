@@ -30,15 +30,15 @@ public class MainActivity extends BaseActivity {
 
     private List<Fragment> mFragments = new ArrayList<>();
 
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
-
+    protected void initView() {
         initnavigationView();
         initViewPager();
+    }
+
+    @Override
+    protected int provideContentViewId() {
+        return R.layout.activity_main;
     }
 
     /**

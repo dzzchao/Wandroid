@@ -28,7 +28,7 @@ public class HomeRecyclerAdapter extends RecyclerView.Adapter {
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_home_recycler, parent, false));
+        return new MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.home_recycler_item, parent, false));
     }
 
     @Override
@@ -63,6 +63,5 @@ public class HomeRecyclerAdapter extends RecyclerView.Adapter {
     public int getItemCount() {
         return mdatas.size();
     }
-
 
 }
