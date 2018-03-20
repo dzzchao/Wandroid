@@ -86,5 +86,6 @@ public class HomeFragment extends BaseFragment implements IHomeView {
             images.add(dataBean.getImagePath());
         }
         mBanner.setImages(images);
+        mBanner.start();
     }
 }
