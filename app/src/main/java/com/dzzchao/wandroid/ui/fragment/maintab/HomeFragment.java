@@ -1,5 +1,7 @@
 package com.dzzchao.wandroid.ui.fragment.maintab;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,6 +17,7 @@ import com.dzzchao.wandroid.ui.fragment.maintab.presenter.HomePresenter;
 import com.dzzchao.wandroid.ui.fragment.maintab.view.IHomeView;
 import com.dzzchao.wandroid.utils.GlideImageLoader;
 import com.youth.banner.Banner;
+import com.youth.banner.listener.OnBannerListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,6 +60,7 @@ public class HomeFragment extends BaseFragment implements IHomeView {
         View view = LayoutInflater.from(getContext()).inflate(R.layout.home_recycler_header, null);
         mBanner = view.findViewById(R.id.recycler_banner);
         mBanner.setImageLoader(new GlideImageLoader());
+
         mRecyAdapter.addHeaderView(view);
         mRecyclerView.setAdapter(mRecyAdapter);
     }
@@ -80,11 +84,20 @@ public class HomeFragment extends BaseFragment implements IHomeView {
     }
 
     @Override
-    public void showBanner(List<HomeBannerBean.DataBean> data) {
+    public void showBanner(final List<HomeBannerBean.DataBean> data) {
         List<String> images = new ArrayList<>();
         for (HomeBannerBean.DataBean dataBean : data) {
             images.add(dataBean.getImagePath());
         }
+        mBanner.setOnBannerListener(new OnBannerListener() {
+            @Override
+            public void OnBannerClick(int position) {
+                String url = data.get(position).getUrl();
+                Intent intent = new Intent(Intent.ACTION_VIEW);    //为Intent设置Action属性
+                intent.setData(Uri.parse(url)); //为Intent设置DATA属性
+                startActivity(intent);
+            }
+        });
         mBanner.setImages(images);
         mBanner.start();
     }

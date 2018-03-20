@@ -1,6 +1,5 @@
 package com.dzzchao.wandroid.ui.activity;
 
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -19,7 +18,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class MainActivity extends BaseActivity {
 
@@ -73,15 +71,15 @@ public class MainActivity extends BaseActivity {
                 switch (item.getItemId()) {
                     case R.id.navigation_home:
                         //第一次不会触发
-                        MyLog.getIns().d("点击了首页");
+                        MyLog.getIns().d("click Home");
                         mViewPager.setCurrentItem(0);
                         break;
                     case R.id.navigation_system:
-                        MyLog.getIns().d("点击了体系");
+                        MyLog.getIns().d("click System");
                         mViewPager.setCurrentItem(1);
                         break;
                     case R.id.navigation_my:
-                        MyLog.getIns().d("点击了我的");
+                        MyLog.getIns().d("click my");
                         mViewPager.setCurrentItem(2);
                         break;
                     default:
@@ -94,16 +92,13 @@ public class MainActivity extends BaseActivity {
             public void onNavigationItemReselected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.navigation_home:
-                        MyLog.getIns().d("点击了首页 again");
-
+                        MyLog.getIns().d("click Home again");
                         break;
                     case R.id.navigation_system:
-                        MyLog.getIns().d("点击了体系 again");
-
+                        MyLog.getIns().d("click System again");
                         break;
                     case R.id.navigation_my:
-                        MyLog.getIns().d("点击了我的 again");
-
+                        MyLog.getIns().d("click my again");
                         break;
                     default:
                 }
