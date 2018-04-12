@@ -19,6 +19,9 @@ import java.util.List;
 
 import butterknife.BindView;
 
+/**
+ * @author zhangchao
+ */
 public class MainActivity extends BaseActivity {
 
     @BindView(R.id.bottom_navigation_view)
@@ -30,7 +33,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        initnavigationView();
+        initNavigationView();
         initViewPager();
     }
 
@@ -59,12 +62,13 @@ public class MainActivity extends BaseActivity {
             }
         });
         mViewPager.setCurrentItem(0);
+
     }
 
     /**
      * 初始化Navigation
      */
-    private void initnavigationView() {
+    private void initNavigationView() {
         mBottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -72,15 +76,15 @@ public class MainActivity extends BaseActivity {
                     case R.id.navigation_home:
                         //第一次不会触发
                         MyLog.getIns().d("click Home");
-                        mViewPager.setCurrentItem(0);
+                        mViewPager.setCurrentItem(0,false);
                         break;
                     case R.id.navigation_system:
                         MyLog.getIns().d("click System");
-                        mViewPager.setCurrentItem(1);
+                        mViewPager.setCurrentItem(1,false);
                         break;
                     case R.id.navigation_my:
                         MyLog.getIns().d("click my");
-                        mViewPager.setCurrentItem(2);
+                        mViewPager.setCurrentItem(2,false);
                         break;
                     default:
                 }

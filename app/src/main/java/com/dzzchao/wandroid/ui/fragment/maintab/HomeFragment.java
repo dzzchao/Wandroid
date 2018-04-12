@@ -93,8 +93,8 @@ public class HomeFragment extends BaseFragment implements IHomeView {
             @Override
             public void OnBannerClick(int position) {
                 String url = data.get(position).getUrl();
-                Intent intent = new Intent(Intent.ACTION_VIEW);    //为Intent设置Action属性
-                intent.setData(Uri.parse(url)); //为Intent设置DATA属性
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
                 startActivity(intent);
             }
         });

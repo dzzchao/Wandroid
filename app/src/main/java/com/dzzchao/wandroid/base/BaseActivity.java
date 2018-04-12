@@ -1,5 +1,6 @@
 package com.dzzchao.wandroid.base;
 
+import android.app.ActionBar;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +21,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         setContentView(provideContentViewId());
         ButterKnife.bind(this);
         initView();
+
+
     }
 
     protected abstract void initView();
