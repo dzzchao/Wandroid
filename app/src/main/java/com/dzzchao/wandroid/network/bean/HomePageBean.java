@@ -1,4 +1,4 @@
-package com.dzzchao.wandroid.net.bean;
+package com.dzzchao.wandroid.network.bean;
 
 import java.util.List;
 

@@ -10,11 +10,12 @@ import android.view.View;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.dzzchao.wandroid.R;
 import com.dzzchao.wandroid.base.BaseFragment;
-import com.dzzchao.wandroid.net.bean.HomeBannerBean;
-import com.dzzchao.wandroid.net.bean.HomePageBean;
+import com.dzzchao.wandroid.network.bean.HomeBannerBean;
+import com.dzzchao.wandroid.network.bean.HomePageBean;
 import com.dzzchao.wandroid.ui.adapter.HomeRecyclerAdapterByBRVAH;
 import com.dzzchao.wandroid.ui.fragment.maintab.presenter.HomePresenter;
 import com.dzzchao.wandroid.ui.fragment.maintab.view.IHomeView;
+import com.dzzchao.wandroid.ui.widget.TitleBar;
 import com.dzzchao.wandroid.utils.GlideImageLoader;
 import com.youth.banner.Banner;
 import com.youth.banner.listener.OnBannerListener;
@@ -44,6 +45,9 @@ public class HomeFragment extends BaseFragment implements IHomeView {
     @Override
     public void initView(View rootView) {
         mPresenter = new HomePresenter(this);
+
+        new TitleBar(rootView).setTitleText("首页").setBackgroundResource(R.color.white);
+
         mPage = 0;
         mPresenter.reqListData(mPage);
         mPresenter.reqBannerData();
@@ -64,6 +68,7 @@ public class HomeFragment extends BaseFragment implements IHomeView {
         mRecyAdapter.addHeaderView(view);
         mRecyclerView.setAdapter(mRecyAdapter);
     }
+
 
     @Override
     protected int provideContentViewId() {

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_title_bar"
+    android:layout_width="match_parent"
+    android:layout_height="48dp">
+
+    <RelativeLayout
+        android:visibility="invisible"
+        android:id="@+id/rl_left"
+        android:layout_width="50dp"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:id="@+id/tv_left"
+            android:textSize="14sp"
+            android:text="Left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:layout_centerInParent="true"
+        android:id="@+id/tv_title"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:text="Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:visibility="invisible"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/rl_right"
+        android:layout_width="50dp"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:id="@+id/tv_right"
+            android:textSize="14sp"
+            android:text="Right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+
+
+
+</RelativeLayout>

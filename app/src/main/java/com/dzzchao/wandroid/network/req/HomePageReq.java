@@ -1,6 +1,9 @@
-package com.dzzchao.wandroid.net;
+package com.dzzchao.wandroid.network.req;
 
-import com.dzzchao.wandroid.net.bean.HomePageBean;
+import com.dzzchao.wandroid.network.IRequestCallback;
+import com.dzzchao.wandroid.network.IRequestManager;
+import com.dzzchao.wandroid.network.RequestFactory;
+import com.dzzchao.wandroid.network.bean.HomePageBean;
 import com.dzzchao.wandroid.utils.MyLog;
 import com.google.gson.Gson;
 

@@ -1,7 +1,7 @@
 package com.dzzchao.wandroid.ui.fragment.maintab.view;
 
-import com.dzzchao.wandroid.net.bean.HomeBannerBean;
-import com.dzzchao.wandroid.net.bean.HomePageBean;
+import com.dzzchao.wandroid.network.bean.HomeBannerBean;
+import com.dzzchao.wandroid.network.bean.HomePageBean;
 
 import java.util.List;
 

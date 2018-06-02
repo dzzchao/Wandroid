@@ -1,4 +1,4 @@
-package com.dzzchao.wandroid.net;
+package com.dzzchao.wandroid.network;
 
 /**
  * 请求的URL

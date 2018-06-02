@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.dzzchao.wandroid.R;
-import com.dzzchao.wandroid.net.bean.HomePageBean;
+import com.dzzchao.wandroid.network.bean.HomePageBean;
 
 import java.util.ArrayList;
 import java.util.List;

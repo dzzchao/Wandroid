@@ -1,4 +1,4 @@
-package com.dzzchao.wandroid.net;
+package com.dzzchao.wandroid.network;
 
 /**
  * 请求返回成功/失败，成功时，把服务器返回的结果回调出去，失败时回调异常信息
