@@ -1,6 +1,7 @@
 package com.dzzchao.wandroid;
 
 import android.app.Application;
+import android.content.Context;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
@@ -16,10 +17,16 @@ import com.squareup.leakcanary.LeakCanary;
 public class App extends Application {
 
     public static RequestQueue mQueue;
+    private static App ins;
+
+    public static App getIns() {
+        return ins;
+    }
 
     @Override
     public void onCreate() {
         super.onCreate();
+        ins = this;
 
         Logger.addLogAdapter(new AndroidLogAdapter());
 
