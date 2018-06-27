@@ -3,21 +3,22 @@ package com.dzzchao.wandroid.ui.activity;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
-import android.content.pm.PackageManager;
-import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.app.LoaderManager.LoaderCallbacks;
-
 import android.content.CursorLoader;
 import android.content.Loader;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
-
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.PermissionChecker;
+import android.support.v4.util.ObjectsCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -29,10 +30,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import com.dzzchao.wandroid.R;
 import com.dzzchao.wandroid.constants.AppConstants;
 import com.dzzchao.wandroid.retrofit.User;
@@ -40,7 +37,10 @@ import com.dzzchao.wandroid.retrofit.req.RegisterReqBean;
 import com.dzzchao.wandroid.retrofit.req.UserReqBean;
 import com.dzzchao.wandroid.utils.MyLog;
 
-import butterknife.OnClick;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -53,7 +53,8 @@ import static android.Manifest.permission.READ_CONTACTS;
 /**
  * A login screen that offers login via email/password.
  */
-public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
+public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor>,
+        ActivityCompat.OnRequestPermissionsResultCallback {
 
     /**
      * Id to identity READ_CONTACTS permission request.
@@ -119,23 +120,21 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     }
 
     private boolean mayRequestContacts() {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+        if (PermissionChecker.checkSelfPermission(this, READ_CONTACTS) == PackageManager.PERMISSION_GRANTED) {
             return true;
         }
-        if (checkSelfPermission(READ_CONTACTS) == PackageManager.PERMISSION_GRANTED) {
-            return true;
-        }
-        if (shouldShowRequestPermissionRationale(READ_CONTACTS)) {
+        final String[] permissions = {READ_CONTACTS};
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this, READ_CONTACTS)) {
             Snackbar.make(mEmailView, R.string.permission_rationale, Snackbar.LENGTH_INDEFINITE)
                     .setAction(android.R.string.ok, new View.OnClickListener() {
                         @Override
                         @TargetApi(Build.VERSION_CODES.M)
                         public void onClick(View v) {
-                            requestPermissions(new String[]{READ_CONTACTS}, REQUEST_READ_CONTACTS);
+                            ActivityCompat.requestPermissions(LoginActivity.this, permissions, REQUEST_READ_CONTACTS);
                         }
                     });
         } else {
-            requestPermissions(new String[]{READ_CONTACTS}, REQUEST_READ_CONTACTS);
+            ActivityCompat.requestPermissions(this, permissions, REQUEST_READ_CONTACTS);
         }
         return false;
     }
@@ -146,9 +145,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == REQUEST_READ_CONTACTS) {
-            if (grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                populateAutoComplete();
+            for (int i = 0, z = permissions.length; i < z; i++) {
+                if (ObjectsCompat.equals(READ_CONTACTS, permissions[i])
+                        && PackageManager.PERMISSION_GRANTED == grantResults[i]) {
+                    populateAutoComplete();
+                }
             }
         }
     }
