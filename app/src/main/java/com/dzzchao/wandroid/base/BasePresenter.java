@@ -13,7 +13,7 @@ public class BasePresenter {
     public final MyExecutor executor;
 
     public BasePresenter() {
-        MyLog.getIns().d("调用了BasePresenter构造方法");
+        MyLog.d("调用了BasePresenter构造方法");
         executor = MyExecutor.getIns();
     }
 }

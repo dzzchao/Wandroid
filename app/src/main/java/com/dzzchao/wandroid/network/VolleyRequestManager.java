@@ -15,7 +15,7 @@ import org.json.JSONObject;
 public class VolleyRequestManager implements IRequestManager {
 
 
-    public static VolleyRequestManager getInstance() {
+    public static VolleyRequestManager ance() {
         return SingletonHolder.sInstance;
     }
 

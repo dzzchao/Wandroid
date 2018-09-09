@@ -9,6 +9,8 @@ import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
 import com.squareup.leakcanary.LeakCanary;
 
+import timber.log.Timber;
+
 
 /**
  * @author zhangchao
@@ -39,5 +41,10 @@ public class App extends Application {
         }
         LeakCanary.install(this);
         // Normal app init code...s
+
+
+        if(BuildConfig.DEBUG) {
+            Timber.plant(new Timber.DebugTree());
+        }
     }
 }

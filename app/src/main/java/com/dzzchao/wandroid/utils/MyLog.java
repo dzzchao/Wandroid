@@ -2,6 +2,8 @@ package com.dzzchao.wandroid.utils;
 
 import com.orhanobut.logger.Logger;
 
+import timber.log.Timber;
+
 /**
  * 打印日志工具类
  * Created by zhangchao on 2018/3/11.
@@ -9,30 +11,20 @@ import com.orhanobut.logger.Logger;
 
 public class MyLog {
 
-    private MyLog() {
+
+    public static void d(String msg) {
+        Timber.d(msg);
     }
 
-    private static class MyLogFactory {
-        private static MyLog instance = new MyLog();
+    public static void i(String msg) {
+        Timber.i(msg);
     }
 
-    public static MyLog getIns() {
-        return MyLogFactory.instance;
+    public static void e(String msg) {
+        Timber.e(msg);
     }
 
-    public void d(String msg) {
-        Logger.d(msg);
-    }
-
-    public void i(String msg) {
-        Logger.i(msg);
-    }
-
-    public void e(String msg) {
-        Logger.e(msg);
-    }
-
-    public void json(String json) {
+    public static void json(String json) {
         Logger.json(json);
     }
 

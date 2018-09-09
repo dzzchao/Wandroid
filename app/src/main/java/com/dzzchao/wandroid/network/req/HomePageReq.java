@@ -20,7 +20,7 @@ public class HomePageReq {
         requestManager.get(mUrl, new IRequestCallback() {
             @Override
             public void onSuccess(String response) {
-                MyLog.getIns().json(response);
+                MyLog.json(response);
                 Gson gson = new Gson();
                 HomePageBean homePageBean = gson.fromJson(response, HomePageBean.class);
             }

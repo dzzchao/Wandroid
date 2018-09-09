@@ -30,7 +30,7 @@ public class HomePresenter extends BasePresenter {
      * 获取首页数据
      */
     public void reqListData(final int page) {
-        MyLog.getIns().d("reqListData 页数：" + page);
+        MyLog.d("reqListData 页数：" + page);
         executor.submit(new Runnable() {
             @Override
             public void run() {
@@ -38,7 +38,7 @@ public class HomePresenter extends BasePresenter {
                 requestManager.get(mUrl, new IRequestCallback() {
                     @Override
                     public void onSuccess(String response) {
-                        MyLog.getIns().json(response);
+                        MyLog.json(response);
                         Gson gson = new Gson();
                         HomePageBean homePageBean = gson.fromJson(response, HomePageBean.class);
                         mView.showList(homePageBean.getData().getDatas());
@@ -64,7 +64,7 @@ public class HomePresenter extends BasePresenter {
                 requestManager.get(mUrl, new IRequestCallback() {
                     @Override
                     public void onSuccess(String response) {
-                        MyLog.getIns().json(response);
+                        MyLog.json(response);
                         Gson gson = new Gson();
                         HomeBannerBean bannerBean = gson.fromJson(response, HomeBannerBean.class);
                         mView.showBanner(bannerBean.getData());

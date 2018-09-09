@@ -1,6 +1,8 @@
 package com.dzzchao.wandroid.ui.activity;
 
+import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -31,8 +33,11 @@ public class MainActivity extends BaseActivity {
 
     private List<Fragment> mFragments = new ArrayList<>();
 
+
     @Override
-    protected void initView() {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
         initNavigationView();
         initViewPager();
     }
@@ -61,8 +66,8 @@ public class MainActivity extends BaseActivity {
                 return mFragments.size();
             }
         });
+        //选择默认显示的界面
         mViewPager.setCurrentItem(0);
-
     }
 
     /**
@@ -75,15 +80,15 @@ public class MainActivity extends BaseActivity {
                 switch (item.getItemId()) {
                     case R.id.navigation_home:
                         //第一次不会触发
-                        MyLog.getIns().d("click Home");
+                        MyLog.d("click Home");
                         mViewPager.setCurrentItem(0,false);
                         break;
                     case R.id.navigation_system:
-                        MyLog.getIns().d("click System");
+                        MyLog.d("click System");
                         mViewPager.setCurrentItem(1,false);
                         break;
                     case R.id.navigation_my:
-                        MyLog.getIns().d("click my");
+                        MyLog.d("click my");
                         mViewPager.setCurrentItem(2,false);
                         break;
                     default:
@@ -96,13 +101,13 @@ public class MainActivity extends BaseActivity {
             public void onNavigationItemReselected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.navigation_home:
-                        MyLog.getIns().d("click Home again");
+                        MyLog.d("click Home again");
                         break;
                     case R.id.navigation_system:
-                        MyLog.getIns().d("click System again");
+                        MyLog.d("click System again");
                         break;
                     case R.id.navigation_my:
-                        MyLog.getIns().d("click my again");
+                        MyLog.d("click my again");
                         break;
                     default:
                 }
